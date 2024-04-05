@@ -1,4 +1,11 @@
+function block_space(btn){
+    if (btn.keyCode == '32') {
+        btn.preventDefault();
+    }
+};
+
 let testBtn = document.getElementById('test');
+let startBtn = document.getElementById('start');
 
 
 let second = 0; 
@@ -17,6 +24,7 @@ function startTest(){
     counter ++;
     console.log("Counter = " + counter);
 }
+
 function restartTest(){
     timer = false;
     second = 0;
@@ -25,16 +33,22 @@ function restartTest(){
 }
 var counter = 0;
 
-testBtn.addEventListener('click', function () {
-    if (second === 0 & milisec === 0){
-        const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);
+startBtn.addEventListener('keydown', function (btn) {
+    if (btn.keyCode == 32 & counter != 0){     
+        if (counter < 5){
+            restartTest();
+            const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);        
+        }
+        else{
+            timer = false;
+        }
     }  
-    else if (counter < 5){
-        restartTest();
-        const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);        
-    }
-    else{
-        timer = false;
+});
+
+
+startBtn.addEventListener('click', function () {
+    if (counter == 0){     
+        const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);
     }  
 });
 
@@ -69,8 +83,6 @@ function stopWatch() {
             second++; 
             milisec = 0; 
         } 
-  
-
         let secString = second; 
         let milisecString = milisec; 
   
