@@ -4,8 +4,8 @@ function block_space(btn){
     }
 };
 
-let testBtn = document.getElementById('test');
 let startBtn = document.getElementById('start');
+let okno = document.getElementById('okno');
 
 
 let second = 0; 
@@ -18,7 +18,7 @@ function getRandomInt(min, max) {
 
 
 function startTest(){
-    testBtn.style.backgroundColor = "red";
+    okno.style.backgroundColor = "red";
     timer = true; 
     stopWatch(); 
     counter ++;
@@ -29,7 +29,7 @@ function restartTest(){
     timer = false;
     second = 0;
     milisec = 0;
-    testBtn.style.backgroundColor = "white";    
+    okno.style.backgroundColor = "white";    
 }
 var counter = 0;
 
