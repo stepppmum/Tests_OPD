@@ -52,28 +52,6 @@ startBtn.addEventListener('click', function () {
     }  
 });
 
-
-  
-// startBtn.addEventListener('click', function () { 
-//     if (second === 0 & milisec === 0){
-//         timer = true; 
-//         stopWatch(); 
-//     }
-//     else{
-//         timer = false;
-//         second = 0; 
-//         milisec = 0; 
-//         document.getElementById('sec').innerHTML = "00"; 
-//         document.getElementById('milisec').innerHTML = "00";
-//         timer = true; 
-//         stopWatch(); 
-//     }
-// }); 
-  
-// stopBtn.addEventListener('click', function () { 
-//     timer = false;
-// }); 
-  
   
 function stopWatch() { 
     if (timer) { 
