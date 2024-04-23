@@ -4,7 +4,7 @@ let second = 0;
 let milisec = 0;
 let timer = false;
 let counter = 0;
-let amount = 10;
+let amount = 3;
 const secFinal = document.getElementById('sec');
 const milisecFinal  = document.getElementById('milisec');
 let results = new Array(amount);
@@ -40,52 +40,60 @@ function restartTest() {
     testBtn.style.backgroundColor = "white";
 }
 
-function isKeyPressedAndCounterNotZero(event, counter) {
+function isKeyPressedAndCounterNotZero(event, colour) {
     if (testBtn.style.backgroundColor === "red"){
-        return event.keyCode === 37 && counter !== 0
+        return event.keyCode === 37 && colour === "red"
     }
     if (testBtn.style.backgroundColor === "blue"){
-        return event.keyCode === 38 && counter !== 0
+        return event.keyCode === 38 && colour === "blue"
     }
     else{
-        return event.keyCode === 39 && counter !== 0;
+        return event.keyCode === 39 && colour === "green"
     }
 }    
 
 
-
-startBtn.addEventListener('keydown', function (event) {
-    if (isKeyPressedAndCounterNotZero(event, counter)) {
-        if (counter < amount) {
+function doTest(){
+        if (counter < amount){
             restartTest();
             const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
             let dataSec = document.getElementById('sec').innerHTML;
             let dataMilisec = document.getElementById('milisec').innerHTML;
             results.push(dataSec + dataMilisec);
-        } else {
-            timer = false;
         }
-    }
-});
-
-
-startBtn.addEventListener('keydown', function (event) {
-    if (isKeyPressedAndCounterNotZero(event, counter) !== event.keyCode) {
-        if (counter < amount) {
-            restartTest();
-            const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
-            // incorrectAnswer ++;
-            // console.log(incorrectAnswer);
-            // let dataSec = document.getElementById('sec').innerHTML;
-            // let dataMilisec = document.getElementById('milisec').innerHTML;
-            // results.push(dataSec + dataMilisec);
-        } else {
+        else {
             timer = false;
-            incorrectAnswer ++;
+            
+        }
+    
+}
+
+startBtn.addEventListener('keydown', function (event){
+    colour = testBtn.style.backgroundColor;
+    if (isKeyPressedAndCounterNotZero(event, colour)){
+        if (counter !== 0){
+            doTest();
+        }
+        else{
+            doTest();
+            incorrectAnswer++;
             console.log(incorrectAnswer);
         }
     }
-});
+    else{
+        if (counter !== 0){
+            doTest();
+            incorrectAnswer ++;
+            console.log(incorrectAnswer);
+        }
+        else{
+            doTest();
+            incorrectAnswer++;
+            console.log(incorrectAnswer);
+        }
+    }
+})
+
 
 startBtn.addEventListener('click', function () {
     if (counter === 0) {
