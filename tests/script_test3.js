@@ -40,15 +40,15 @@ function restartTest() {
     testBtn.style.backgroundColor = "white";
 }
 
-function isKeyPressedAndCounterNotZero(event, colour) {
+function isKeyPressedAndCounterNotZero(event) {
     if (testBtn.style.backgroundColor === "red"){
-        return event.keyCode === 37 && colour === "red"
+        return event.keyCode === 37
     }
     if (testBtn.style.backgroundColor === "blue"){
-        return event.keyCode === 38 && colour === "blue"
+        return event.keyCode === 38
     }
     else{
-        return event.keyCode === 39 && colour === "green"
+        return event.keyCode === 39
     }
 }    
 
@@ -69,26 +69,15 @@ function doTest(){
 }
 
 startBtn.addEventListener('keydown', function (event){
-    colour = testBtn.style.backgroundColor;
-    if (isKeyPressedAndCounterNotZero(event, colour)){
-        if (counter !== 0){
+    if (isKeyPressedAndCounterNotZero(event)){
+        if (counter !== 0 && timer === true){
             doTest();
-        }
-        else{
-            doTest();
-            incorrectAnswer++;
-            console.log(incorrectAnswer);
         }
     }
     else{
-        if (counter !== 0){
+        if (counter !== 0 && timer === true){
             doTest();
             incorrectAnswer ++;
-            console.log(incorrectAnswer);
-        }
-        else{
-            doTest();
-            incorrectAnswer++;
             console.log(incorrectAnswer);
         }
     }

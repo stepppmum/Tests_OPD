@@ -1,23 +1,15 @@
 let testBtn = document.getElementById('okno');
 let startBtn = document.getElementById('start');
-let space = 32;
 let second = 0;
 let milisec = 0;
 let timer = false;
 let counter = 0;
-let amount = 10;
+let amount = 3;
 const secFinal = document.getElementById('sec');
 const milisecFinal  = document.getElementById('milisec');
 let results = new Array(amount);
 let finalNumber;
 let incorrectAnswer = 0;
-
-
-function block_space(btn) {
-    if (btn.keyCode === space) {
-        btn.preventDefault();
-    }
-}
 
 
 function getRandomInt(min, max) {
@@ -44,48 +36,43 @@ function restartTest() {
 }
 
 
-function isKeyPressedAndCounterNotZero(event, counter) {
-    console.log(finalNumber);
+function isKeyPressedAndCounterNotZero(event){
     if (finalNumber % 2 === 0){
-        if (event.keyCode === 37 && counter !== 0){
-            return true;
-        }
-        else{
-            incorrectAnswer ++;
-            console.log(incorrectAnswer);
-            return true;
-            //скипает вопрос при неправильном ответе
-        }
-        // стрелочка влево
+        return event.keyCode === 37
     }
     else{
-        if (event.keyCode === 39 && counter !== 0){
-            return true;
-        }
-        else{
-            incorrectAnswer ++;
-            console.log(incorrectAnswer);
-            return true;
-        }
-        // стрелочка впрао
+        return event.keyCode === 39
     }
 }
-//переделаю функцию
 
+function doTest(){
+    if (counter < amount){
+        restartTest();
+        const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
+        let dataSec = document.getElementById('sec').innerHTML;
+        let dataMilisec = document.getElementById('milisec').innerHTML;
+        results.push(dataSec + dataMilisec);
+    }
+    else {
+        timer = false;
+    }
 
-startBtn.addEventListener('keydown', function (event) {
-    if (isKeyPressedAndCounterNotZero(event, counter)) {
-        if (counter < amount) {
-            restartTest();
-            const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
-            let dataSec = document.getElementById('sec').innerHTML;
-            let dataMilisec = document.getElementById('milisec').innerHTML;
-            results.push(dataSec + dataMilisec);
-        } else {
-            timer = false;
+}
+
+startBtn.addEventListener('keydown', function (event){
+    if (isKeyPressedAndCounterNotZero(event)){ 
+        if (counter !==0 && timer === true)
+            doTest();
+    }
+    else{
+        if (counter !== 0 && timer === true){
+            doTest();
+            incorrectAnswer++;
+            console.log(incorrectAnswer);
         }
     }
-});
+})
+
 
 startBtn.addEventListener('click', function () {
     if (counter === 0) {
