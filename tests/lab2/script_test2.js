@@ -9,7 +9,7 @@ let startBtn = document.getElementById('start');
 let second = 0; 
 let milisec = 0; 
 
-var audio = new Audio('пип.mp3');
+var audio = new Audio('../sounds/пип.mp3');
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;

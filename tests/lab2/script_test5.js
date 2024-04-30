@@ -15,7 +15,7 @@ function getRandomInt(min, max) {
 }
 
 function playNumber(number){
-    audio = new Audio('sounds/' + number + '.mp3');
+    audio = new Audio('../sounds/' + number + '.mp3');
     audio.play();
 }
 
