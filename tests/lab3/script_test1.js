@@ -6,7 +6,7 @@ let startBtn = document.getElementById('start');
 let space = 32;
 let timer = false;
 let counter = 0;
-let amount = 2;
+let amount = 5;
 var continueAnimating = true;
 let results = new Array(amount);
 let pTimestamp = 0;
@@ -50,6 +50,7 @@ function tick(timestamp){
 //очищение по кадрам
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "blue";
+
     context.beginPath();
     context.arc(canvas.width / 2,canvas.height / 2, radius, -Math.PI*2, Math.PI * 2);
     context.stroke();
@@ -114,23 +115,27 @@ function getRandomInt(min, max) {
 
 function checkTime(){
     speed = Math.abs((60 * dop_Angle) / (Math.PI));
-    if (dop_Angle > 0){
-        //мы идем по часовой по окружности
-        if ((canvas.width / 2 + radius * Math.cos(angle)) < (canvas.width / 2)){
-            length = (((Math.PI * radius) / 180) * (Math.asin(1-((canvas.height / 2 + radius * Math.sin(angle)) / radius))));
+    if ((canvas.height / 2 + radius * Math.sin(angle)) < canvas.height / 2){
+        if (dop_Angle > 0){
+            //мы идем по часовой по окружности
+            if ((canvas.width / 2 + radius * Math.cos(angle)) < (canvas.width / 2)){
+                length = (((Math.PI * radius) / 180) * Math.asin(1+(((canvas.height / 2 + radius * Math.sin(angle)) - canvas.height / 2)/ radius)));
+            }
+            else{
+                length = -(((Math.PI * radius) / 180) * Math.asin(1+(((canvas.height / 2 + radius * Math.sin(angle)) - canvas.height / 2)/ radius)));
+            }
         }
         else{
-            length = -(((Math.PI * radius) / 180) * (Math.asin(1-((canvas.height / 2 + radius * Math.sin(angle)) / radius))));
+            //идем против часовой по окружности
+            if ((canvas.width / 2 + radius * Math.cos(angle)) < (canvas.width / 2)){
+                length = -(((Math.PI * radius) / 180) * Math.asin(1+(((canvas.height / 2 + radius * Math.sin(angle)) - canvas.height / 2)/ radius)));
+            }
+            else{
+                length = (((Math.PI * radius) / 180) * Math.asin(1+(((canvas.height / 2 + radius * Math.sin(angle)) - canvas.height / 2) / radius)));
+            }
         }
-    }
-    else{
-        //идем против часовой по окружности
-        if ((canvas.width / 2 + radius * Math.cos(angle)) < (canvas.width / 2)){
-            length = -(((Math.PI * radius) / 180) * (Math.asin(1-((canvas.height / 2 + radius * Math.sin(angle)) / radius))));
-        }
-        else{
-            length = (((Math.PI * radius) / 180) * (Math.asin(1-((canvas.height / 2 + radius * Math.sin(angle)) / radius))));
-        }
+    }else{
+        length = -(Math.PI / 4);
     }
     time = length / speed;
     return time;
