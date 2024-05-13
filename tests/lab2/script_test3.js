@@ -3,18 +3,28 @@ let startBtn = document.getElementById('start');
 let second = 0;
 let milisec = 0;
 let timer = false;
-let counter = 0;
-let amount = 3;
+let amount = 5;
+let counter = amount;
 const secFinal = document.getElementById('sec');
 const milisecFinal  = document.getElementById('milisec');
 let results = new Array(amount);
 let incorrectAnswer = 0;
 
+function block_space(btn){
+    if (btn.keyCode == '32') {
+        btn.preventDefault();
+    }
+};
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function fill(n, line) {
+    line.style.backgroundImage = `linear-gradient(90deg, #444444 ${
+      100 - n
+    }%, #ffffff ${100 - n}%)`;
+}
 
 function startTest() {
     const colour = getRandomInt(1, 4);
@@ -29,7 +39,7 @@ function startTest() {
     }
     timer = true;
     stopWatch();
-    counter++;
+    counter --;
     console.log("Counter = " + counter);
 }        
 
@@ -54,39 +64,45 @@ function isKeyPressedAndCounterNotZero(event) {
 
 
 function doTest(){
-        if (counter < amount){
+        if (counter > 0){
             restartTest();
-            const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
+            setTimeout(startTest, getRandomInt(1, 5) * 1000);
             let dataSec = document.getElementById('sec').innerHTML;
             let dataMilisec = document.getElementById('milisec').innerHTML;
             results.push(dataSec + dataMilisec);
         }
         else {
             timer = false;
-            
+            let dataSec = document.getElementById('sec').innerHTML;
+            let dataMilisec = document.getElementById('milisec').innerHTML;
+            results.push(dataSec + dataMilisec);            
         }
     
 }
 
 startBtn.addEventListener('keydown', function (event){
+    block_space(event);
     if (isKeyPressedAndCounterNotZero(event)){
-        if (counter !== 0 && timer === true){
+        if (counter !== amount && timer === true){
             doTest();
+            fill(counter*(100/amount), line);
         }
     }
     else{
-        if (counter !== 0 && timer === true){
+        if (counter !== amount && timer === true){
             doTest();
+            fill(counter*(100/amount), line);
             incorrectAnswer ++;
             console.log(incorrectAnswer);
         }
+
     }
 })
 
 
 startBtn.addEventListener('click', function () {
-    if (counter === 0) {
-        const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
+    if (counter === amount) {
+        setTimeout(startTest, getRandomInt(1, 5) * 1000);
     }
 });
 

@@ -3,10 +3,11 @@ const context = canvas.getContext('2d');
 canvas.width = 900;
 canvas.height = 400;
 let startBtn = document.getElementById('start');
+let line = document.getElementById('line');
 let space = 32;
 let timer = false;
-let counter = 0;
 let amount = 5;
+let counter = amount;
 var continueAnimating = true;
 let results = new Array(amount);
 let pTimestamp = 0;
@@ -15,6 +16,12 @@ let angle1 = 0;
 let angle2 = 0;
 let radius = 130;
 let incorrectAnswer = 0;
+
+function fill(n, line) {
+    line.style.backgroundImage = `linear-gradient(90deg, #444444 ${
+      100 - n
+    }%, #ffffff ${100 - n}%)`;
+}
 
 //рисует круг изначально
 context.beginPath();
@@ -283,7 +290,7 @@ function startTest() {
     continueAnimating = true;
     requestAnimationFrame(tick);
     timer = true;
-    counter++;
+    counter--;
     console.log("Counter = " + counter);
 }        
 
@@ -306,14 +313,13 @@ function isKeyPressedAndCounterNotZero(event){
 
 
 function doTest(){
-    if (counter < amount){
+    if (counter > 0){
         restartTest();
-        const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
+        setTimeout(startTest, getRandomInt(1, 5) * 1000);
         results.push(checkTime());
         console.log(results);
     }
     else {
-        timer = false;
         continueAnimating = false;
         results.push(checkTime());
         console.log(results);
@@ -322,21 +328,31 @@ function doTest(){
 
 
 startBtn.addEventListener('keydown', function (event){
+    block_space(event);
     if (isKeyPressedAndCounterNotZero(event)){ 
-        if (counter !==0 && timer === true)
+        if (counter !== amount && continueAnimating === true){
             doTest();
+            fill(counter*(100/amount), line);
+        }else{
+            continueAnimating = false;
+            fill(counter*(100/amount), line);
+        }
     }else {
-        if (counter !== 0 && timer === true){
+        if (counter !== amount && continueAnimating === true){
             doTest();
+            fill(counter*(100/amount), line);
             incorrectAnswer ++;
             console.log(incorrectAnswer);
+        }else{
+            continueAnimating = false;
+            fill(counter*(100/amount), line);
         }
     }
 })
 
 
 startBtn.addEventListener('click', function () {
-    if (counter === 0) {
-        const clr = setTimeout(startTest, getRandomInt(1, 5) * 1000);
+    if (counter === amount) {
+        setTimeout(startTest, getRandomInt(1, 5) * 1000);
     }
 });

@@ -13,6 +13,7 @@ let second = 0;
 let milisec = 0; 
 let amount = 5;
 let counter = amount;
+let results = new Array(amount);
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -22,7 +23,7 @@ function fill(n, line) {
     line.style.backgroundImage = `linear-gradient(90deg, #444444 ${
       100 - n
     }%, #ffffff ${100 - n}%)`;
-}
+  }
 
 
 function startTest(){
@@ -39,25 +40,49 @@ function restartTest(){
     milisec = 0;
     okno.style.backgroundColor = "white";    
 }
+function isKeyPressedAndCounterNotZero(event) {
+    return event.keyCode === 32;
+}   
 
-startBtn.addEventListener('keydown', function (btn) {
-    if (btn.keyCode == 32 & counter != amount){     
-        if (counter > 0){
-            restartTest();
-            setTimeout(startTest, getRandomInt(1, 5)*1000);        
-            fill(counter*20, line);
+function doTest(){
+    if (counter > 0){
+        restartTest();
+        setTimeout(startTest, getRandomInt(1, 5) * 1000);
+        let dataSec = document.getElementById('sec').innerHTML;
+        let dataMilisec = document.getElementById('milisec').innerHTML;
+        results.push(dataSec + dataMilisec);
+    }
+    else {
+        timer = false;
+        let dataSec = document.getElementById('sec').innerHTML;
+        let dataMilisec = document.getElementById('milisec').innerHTML;
+        results.push(dataSec + dataMilisec);            
+    }
+}
+
+startBtn.addEventListener('keydown', function (event){
+    block_space(event);
+    if (isKeyPressedAndCounterNotZero(event)){
+        if (counter !== amount && timer === true){
+            doTest();
+            fill(counter*(100/amount), line);
         }
-        else{
-            timer = false;
-            fill(counter*20, line);
+    }
+    else{
+        if (counter !== amount && timer === true){
+            doTest();
+            fill(counter*(100/amount), line);
+            incorrectAnswer ++;
+            console.log(incorrectAnswer);
         }
-    }  
-});
+    }
+})
+
 
 
 startBtn.addEventListener('click', function () {
-    if (counter == amount){     
-        const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);
+    if (counter === amount){     
+        setTimeout(startTest, getRandomInt(1, 5)*1000);
     }  
 });
 
