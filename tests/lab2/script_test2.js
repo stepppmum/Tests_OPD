@@ -5,9 +5,12 @@ function block_space(btn){
 };
 
 let startBtn = document.getElementById('start');
+let line = document.getElementById('line');
 
 let second = 0; 
 let milisec = 0; 
+let amount = 5;
+let counter = amount;
 
 var audio = new Audio('../sounds/пип.mp3');
 
@@ -15,12 +18,18 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function fill(n, line) {
+    line.style.backgroundImage = `linear-gradient(90deg, #444444 ${
+      100 - n
+    }%, #ffffff ${100 - n}%)`;
+}
+
 
 function startTest(){
     audio.play();
     timer = true; 
     stopWatch(); 
-    counter ++;
+    counter --;
     console.log("Counter = " + counter);
 }
 
@@ -29,23 +38,25 @@ function restartTest(){
     second = 0;
     milisec = 0;    
 }
-var counter = 0;
+
 
 startBtn.addEventListener('keydown', function (btn) {
-    if (btn.keyCode == 32 & counter != 0){     
-        if (counter < 5){
+    if (btn.keyCode == 32 & counter != amount){     
+        if (counter > 0){
             restartTest();
             const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);        
+            fill(counter*20, line);
         }
         else{
             timer = false;
+            fill(counter*20, line);
         }
     }  
 });
 
 
 startBtn.addEventListener('click', function () {
-    if (counter == 0){     
+    if (counter == amount){     
         const clr = setTimeout(startTest, getRandomInt(1, 5)*1000);
     }  
 });
