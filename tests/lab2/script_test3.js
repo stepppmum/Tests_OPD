@@ -7,8 +7,8 @@ let amount = 5;
 let counter = amount;
 const secFinal = document.getElementById('sec');
 const milisecFinal  = document.getElementById('milisec');
-let results = new Array(amount);
-let incorrectAnswer = 0;
+let results = new Array(amount + 1);
+results[0] = 0;
 
 function block_space(btn){
     if (btn.keyCode == '32') {
@@ -86,16 +86,16 @@ startBtn.addEventListener('keydown', function (event){
         if (counter !== amount && timer === true){
             doTest();
             fill(counter*(100/amount), line);
+            console.log(results);
         }
     }
     else{
         if (counter !== amount && timer === true){
             doTest();
             fill(counter*(100/amount), line);
-            incorrectAnswer ++;
-            console.log(incorrectAnswer);
+            results[0]++;
+            console.log(results);
         }
-
     }
 })
 

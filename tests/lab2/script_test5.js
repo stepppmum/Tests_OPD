@@ -7,8 +7,8 @@ let amount = 5;
 let counter = amount;
 const secFinal = document.getElementById('sec');
 const milisecFinal  = document.getElementById('milisec');
-let results = new Array(amount);
-let incorrectAnswer = 0;
+let results = new Array(amount+1);
+results[0] = 0;
 
 
 function getRandomInt(min, max) {
@@ -94,10 +94,11 @@ startBtn.addEventListener('keydown', function (event){
         if (counter !== amount && timer === true){
             doTest();
             fill(counter*(100/amount), line);
-            incorrectAnswer ++;
+            results[0]++;
             console.log(incorrectAnswer);
         }else{
             timer = false;
+            results[0]++;
             fill(counter*(100/amount), line);
         }
     }

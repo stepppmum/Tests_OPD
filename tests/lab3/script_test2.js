@@ -9,13 +9,13 @@ let timer = false;
 let amount = 5;
 let counter = amount;
 var continueAnimating = true;
-let results = new Array(amount);
+let results = new Array(amount+1);
+results[0] = 0;
 let pTimestamp = 0;
 let angle = 0;
 let angle1 = 0;
 let angle2 = 0;
 let radius = 130;
-let incorrectAnswer = 0;
 
 function fill(n, line) {
     line.style.backgroundImage = `linear-gradient(90deg, #444444 ${
@@ -341,10 +341,11 @@ startBtn.addEventListener('keydown', function (event){
         if (counter !== amount && continueAnimating === true){
             doTest();
             fill(counter*(100/amount), line);
-            incorrectAnswer ++;
+            results[0]++;
             console.log(incorrectAnswer);
         }else{
             continueAnimating = false;
+            results[0]++;
             fill(counter*(100/amount), line);
         }
     }
