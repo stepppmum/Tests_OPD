@@ -7,6 +7,7 @@ const btnNext = document.getElementById('next_slide');
 let sliderCount = 0;
 let sliderWidth = slider.offsetWidth;
 let incorrectAnswers = 0;
+let skipped = 0;
 
 
 function rollSlider(){
@@ -15,7 +16,7 @@ function rollSlider(){
 
 function nextSlide(){
     sliderCount++;
-    if (sliderCount < 15){
+    if (sliderCount < 16){
         rollSlider();
     }
 }
@@ -32,6 +33,8 @@ function checkAnswer(name){
             //console.log(option_value);
             if (option_value !== "правильный"){
                 incorrectAnswers ++;
+            }else if (option_value === null){
+                skipped ++;
             }
             break;
             
@@ -55,5 +58,5 @@ startBtn.addEventListener('click', function(){
     checkAnswer(14);
     checkAnswer(15);
 
-    console.log('fghj', incorrectAnswers);
+    console.log('fghj', incorrectAnswers, skipped);
 })

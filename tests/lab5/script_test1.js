@@ -31,11 +31,6 @@ function fill(n, line) {
     }%, #ffffff ${100 - n}%)`;
 }
 
-// function block_space(btn){
-//     if (btn.keyCode == '32') {
-//         btn.preventDefault();
-//     }
-// };
 
 function startTest() {
     const randomColor = getRandomInt(1, 6);

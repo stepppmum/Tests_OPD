@@ -82,96 +82,12 @@ function compare(){
 }
 
 function startTest() {
-    // const firstNumber = getRandomInt(1, 5);
-    // const secondNumber = getRandomInt(1, 5);
-    // okno.innerHTML = firstNumber + ' + ' + secondNumber;
-    // const answer = firstNumber + secondNumber;
-    // finalNumber = answer;
-    // if (count % 5 !== 0){
-    //     setInterval(returnNumber, 2000);
-    //     console.log(count);
-    // }else if (count === 0){
-    //     returnNumber();
-    // }
-    //count ++;
     const timerId = setInterval(returnNumber, 2000);
-    //setTimeout(clearInterval(timerId), 10000);
     setTimeout(() => {clearInterval(timerId)}, 100000);
     setTimeout(checkResult, 100000);
     setTimeout(compare, 100000);
-    // let timeId = setTimeout(() => {setInterval(returnNumber, 2000)}, 25000);
-    // //setTimeout(() => {timerId}, 25000);
-    // setTimeout(() => {clearInterval(timeId)}, 33000);
-    //setTimeout(() => {setInterval(returnNumber, 2000)}, 48000);
-    //setTimeout(() => {clearInterval(timerId)}, 56000);
-    // if (returnNumber === 5){
-    //     clearInterval(timerId);
-    // }
-    //console.log(count);
-    //timer = true;
-    //stopWatch();
-    // counter --;
-    // console.log("Counter = " + counter);
 }        
 
-// function restartTest() {
-//     timer = false;
-//     second = 0;
-//     milisec = 0;
-// }
-
-
-// function isKeyPressedAndCounterNotZero(event){
-//     if (finalNumber % 2 === 0){
-//         return event.keyCode === 37
-//     }
-//     else{
-//         return event.keyCode === 39
-//     }
-// }
-
-// function doTest(){
-//     if (counter > 0){
-//         restartTest();
-//         setTimeout(startTest, getRandomInt(1, 5) * 1000);
-//         let dataSec = document.getElementById('sec').innerHTML;
-//         let dataMilisec = document.getElementById('milisec').innerHTML;
-//         results.push(dataSec + dataMilisec);
-//     }
-//     else {
-//         timer = false;
-//         let dataSec = document.getElementById('sec').innerHTML;
-//         let dataMilisec = document.getElementById('milisec').innerHTML;
-//         results.push(dataSec + dataMilisec);
-//     }
-
-// }
-
-// startBtn.addEventListener('keydown', function (event){
-//     block_space(event);
-//     if (isKeyPressedAndCounterNotZero(event)){ 
-//     //while (true){
-//         if (counter !== amount && timer === true){
-//             doTest();
-//             fill(counter*(100/amount), line);
-//         }else{
-//             timer = false;
-//             fill(counter*(100/amount), line);
-//         }    
-//     }
-    // else{
-    //     if (counter !== amount && timer === true){
-    //         doTest();
-    //         fill(counter*(100/amount), line);
-    //         results[0]++;
-    //         console.log(incorrectAnswer);
-    //     }else{
-    //         timer = false;
-    //         results[0]++;
-    //         fill(counter*(100/amount), line);
-    //     }
-    // }
-//})
 
 
 startBtn.addEventListener('click', function () {
@@ -180,25 +96,3 @@ startBtn.addEventListener('click', function () {
     }
 });
 
-
-// function stopWatch() {
-//     if (timer) {
-//         milisec++;
-//         if (milisec === 100) {
-//             second++;
-//             milisec = 0;
-//         }
-//         let secString = second;
-//         let milisecString = milisec;
-
-//         if (second < 10) {
-//             secString = "0" + secString;
-//         }
-//         if (milisec < 10) {
-//             milisecString = "0" + milisecString;
-//         }
-//         secFinal.innerHTML = secString;
-//         milisecFinal.innerHTML = milisecString;
-//         setTimeout(stopWatch, 10);
-//     }
-// }

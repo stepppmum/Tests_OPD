@@ -14,19 +14,34 @@ function fill(n, line) {
 
 const questions = [
     {
-        text: 'Вопрос 1',
-        options: ['Ответ', 'Ответ', 'Ответ', 'Ответ'],
-        correctButton: 4
+        text: '1 1 2 3 5',
+        options: ['8', '6', '7', '9'],
+        correctButton: 1
     },
     {
-        text: 'Вопрос 2',
-        options: ['Ответ', 'Ответ', 'Ответ', 'Ответ'],
+        text: '3 8 15 24 35',
+        options: ['45', '48', '39', '49'],
         correctButton: 2
     },
     {
-        text: 'Вопрос 3',
-        options: ['Ответ', 'Ответ', 'Ответ', 'Ответ'],
+        text: '7 5 8 4 9',
+        options: ['7', '1', '3', '9'],
         correctButton: 3
+    },
+    {
+        text: '1 4 9 18 35',
+        options: ['48', '68', '44', '65'],
+        correctButton: 2
+    },
+    {
+        text: '99 92 86 81 77',
+        options: ['74', '75', '71', '76'],
+        correctButton: 1
+    },
+    {
+        text: '1 2 6 24 120',
+        options: ['235', '240', '146', '720'],
+        correctButton: 4
     },
     // Потом добавить остальные вопросы
 ];
@@ -34,14 +49,9 @@ const questions = [
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
-        // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-
-        // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
