@@ -1,4 +1,4 @@
-let testBtn = document.getElementById('okno');
+let okno = document.getElementById('okno');
 let startBtn = document.getElementById('start');
 let line = document.getElementById('line');
 let results = new Array(2);

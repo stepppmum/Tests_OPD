@@ -55,10 +55,6 @@ function restartTest() {
 }
 
 
-function isKeyPressedAndCounterNotZero(event){
-    
-}
-
 function doTest(){
     if (counter > 0){
         restartTest();
