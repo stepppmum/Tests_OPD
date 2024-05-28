@@ -65,6 +65,7 @@ function doTest(){
         let dataMilisec = document.getElementById('milisec').innerHTML;
         results.push(dataSec + dataMilisec);
         fill(counter*(100/amount), line);
+        console.log('dgh');
     }
 
 }

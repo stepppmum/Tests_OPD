@@ -66,9 +66,9 @@ const generateArray = (length, min, max) => {
 // костыльная функция, но она нужна -_-
 function zaeb(id) {
     okno.innerHTML = "<div id='" + id + "'></div>";
-    var image = document.getElementById(id);
-    var imageName = '`' + '<img src= ./images/1_' + id + '.png>' + '`';
-    image.innerHTMl = imageName;
+    // var image = document.getElementById(id);
+    // var imageName ='<img src= ./images/1_' + id + '.png>';
+    // image.innerHTMl = imageName;
 }
 
 
@@ -94,7 +94,7 @@ function displayImages(count) {
 
             return;
         }
-        var imageName = '`' + '<img src= ./images/'+ step + '/' + curr_array[i] + '.png>' + '`';
+        var imageName = '<img src= ./images/'+ step + '/' + curr_array[i] + '.png>';
         imageContainer.innerHTML = imageName;
         console.log(i, curr_array);
         displayedCount++;

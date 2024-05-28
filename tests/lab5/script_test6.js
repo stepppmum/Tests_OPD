@@ -1,4 +1,5 @@
 let okno = document.getElementById('okno');
+let nextBtn = document.getElementById('next');
 let startBtn = document.getElementById('start');
 let option1 = document.getElementById('option1');
 let option2 = document.getElementById('option2');
@@ -104,6 +105,10 @@ option3.addEventListener('click', checkAnswer);
 option4.addEventListener('click', checkAnswer);
 
 startBtn.addEventListener('click', function () {
+    displayQuestion.currentIndex = displayQuestion();
+})
+
+nextBtn.addEventListener('click', function () {
     displayQuestion.currentIndex = displayQuestion();
 })
 
