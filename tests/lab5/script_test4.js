@@ -66,9 +66,7 @@ const generateArray = (length, min, max) => {
 // костыльная функция, но она нужна -_-
 function zaeb(id) {
     okno.innerHTML = "<div id='" + id + "'></div>";
-    // var image = document.getElementById(id);
-    // var imageName ='<img src= ./images/1_' + id + '.png>';
-    // image.innerHTMl = imageName;
+
 }
 
 

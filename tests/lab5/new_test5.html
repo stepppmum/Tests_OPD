@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test 5</title>
+    <link rel="stylesheet" href="style_test.css">
+    <link rel="stylesheet" href="sidepanel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="15.css">
+</head>
+
+<body>
+    <header>
+        <ul class="topper">
+            <li class="logo">
+                <a href="#" onclick="checkStatusForSidePanel()">OPDOPDOPD
+                    <i class="material-icons" id="logo">
+                        <script>randomLogo("logo")</script>
+                    </i>
+                </a>
+            </li>
+            <li class="startSession" id="startSession">
+                <a href="OPDOPDOPD.html"><i class="material-symbols-outlined">home</i></a>
+            </li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="block">
+            <div class="info">
+                <div class="rules">
+                    <h1>ПРАВИЛА</h1>
+                    <p>ТЕСТ НА КРАТКОВРЕМЕННУЮ ПАМЯТЬ</p>
+
+                    <p>ВАМ БУДЕТ ПРЕДЛОЖЕНО 12 ВОПРОСОВ. В
+                        КАЖДОМ ВОПРОСЕ ВАМ БУДЕТ ПОКАЗАНО ДО 8
+                        РАЗЛИЧНЫХ ИЗОБРАЖЕНИЙ.</p>
+                    <p>ЗАПОМНИТЕ ИХ, А ЗАТЕМ НАЖМИТЕ НА
+                        СООТВЕТСТВУЮЩИЕ КАРТИНКИ В ВЕРНОМ
+                        ПОРЯДКЕ, ЧТОБЫ ПОЛУЧИТЬ ТАКУЮ ЖЕ
+                        ПОСЛЕДОВАТЕЛЬНОСТЬ.</p>
+
+                    <p>ТЕСТИРОВАНИЕ ЗАВЕРШИТСЯ АВТОМАТИЧЕСКИ.</p>
+
+                </div>
+                <div id="buttons">
+                    <button class="btn" id="start">НАЧАТЬ ТЕСТ</button>
+                    <button class="btn" id="stats">СТАТИСТИКА</button>
+                </div>
+            </div>
+            <div id="okno">
+                <div class="slider">
+                    <div class="slider_line">
+                        <div class="question">
+                            <label>
+                                <input type="radio" id=1 name="1" value="правильный"> Иванов
+                            </label>
+                            <label>
+                                <input type="radio" id=1 name="1" value="hj"> Василий
+                            </label>
+                            <label>
+                                <input type="radio" id=1 name="1" value="ghbjn"> Федор
+                            </label>
+                            <label>
+                                <input type="radio" id=1 name="1" value="ghjk"> Семен
+                            </label>
+                            <label>
+                                <input type="radio" id=1 name="1" value="ghj"> Петр
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="2" value="vhbj">Дряхлый
+                            </label>
+                            <label>
+                                <input type="radio" name="2" value="правильный">Маленький
+                            </label>
+                            <label>
+                                <input type="radio" name="2" value="">Старый
+                            </label>
+                            <label>
+                                <input type="radio" name="2" value="">Изношенный
+                            </label>
+                            <label>
+                                <input type="radio" name="2" value="">Ветхий
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="3" value="правильный">Землетрясение
+                            </label>
+                            <label>
+                                <input type="radio" name="3" value="">Грабеж
+                            </label>
+                            <label>
+                                <input type="radio" name="3" value="">Кража
+                            </label>
+                            <label>
+                                <input type="radio" name="3" value="">Поджог
+                            </label>
+                            <label>
+                                <input type="radio" name="3" value="">Нападение
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="4" value="">Скоро
+                            </label>
+                            <label>
+                                <input type="radio" name="4" value="">Быстро
+                            </label>
+                            <label>
+                                <input type="radio" name="4" value="">Поспешно
+                            </label>
+                            <label>
+                                <input type="radio" name="4" value="правильный">Постепенно
+                            </label>
+                            <label>
+                                <input type="radio" name="4" value="">Торопливо
+                            </label>
+                        </div>
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="5" value="">Лист
+                            </label>
+                            <label>
+                                <input type="radio" name="5" value="">Почва
+                            </label>
+                            <label>
+                                <input type="radio" name="5" value="">Кора
+                            </label>
+                            <label>
+                                <input type="radio" name="5" value="правильный">Чешуя
+                            </label>
+                            <label>
+                                <input type="radio" name="5" value="">Сук
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="6" value="">Ненавидеть
+                            </label>
+                            <label>
+                                <input type="radio" name="6" value="">Презирать
+                            </label>
+                            <label>
+                                <input type="radio" name="6" value="">Негодовать
+                            </label>
+                            <label>
+                                <input type="radio" name="6" value="">Возмущаться
+                            </label>
+                            <label>
+                                <input type="radio" name="6" value="правильный">Понимать
+                            </label>
+                        </div>
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="7" value="">Темный
+                            </label>
+                            <label>
+                                <input type="radio" name="7" value="">Светлый
+                            </label>
+                            <label>
+                                <input type="radio" name="7" value="правильный">Голубой
+                            </label>
+                            <label>
+                                <input type="radio" name="7" value="">Яркий
+                            </label>
+                            <label>
+                                <input type="radio" name="7" value="">Тусклый
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="8" value="">Гнездо
+                            </label>
+                            <label>
+                                <input type="radio" name="8" value="">Нора
+                            </label>
+                            <label>
+                                <input type="radio" name="8" value="">Пещера
+                            </label>
+                            <label>
+                                <input type="radio" name="8" value="правильный">Улей
+                            </label>
+                            <label>
+                                <input type="radio" name="8" value="">Берлога
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="9" value="">Молочный
+                            </label>
+                            <label>
+                                <input type="radio" name="9" value="">Мутный
+                            </label>
+                            <label>
+                                <input type="radio" name="9" value="правильный">Смутный
+                            </label>
+                            <label>
+                                <input type="radio" name="9" value="">Грязный
+                            </label>
+                            <label>
+                                <input type="radio" name="9" value="">Чистый
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="10" value="правильный">Грустный
+                            </label>
+                            <label>
+                                <input type="radio" name="10" value="">Мрачный
+                            </label>
+                            <label>
+                                <input type="radio" name="10" value="">Тусклый
+                            </label>
+                            <label>
+                                <input type="radio" name="10" value="">Ясный
+                            </label>
+                            <label>
+                                <input type="radio" name="10" value="">Тихий
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="11" value="">Окружение
+                            </label>
+                            <label>
+                                <input type="radio" name="11" value="">Группа
+                            </label>
+                            <label>
+                                <input type="radio" name="11" value="">Труппа
+                            </label>
+                            <label>
+                                <input type="radio" name="11" value="">Сообщество
+                            </label>
+                            <label>
+                                <input type="radio" name="11" value="правильный">Коллектив
+                            </label>
+                        </div>
+
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="12" value="">Глубокий
+                            </label>
+                            <label>
+                                <input type="radio" name="12" value="правильный">Мелкий
+                            </label>
+                            <label>
+                                <input type="radio" name="12" value="">Пустой
+                            </label>
+                            <label>
+                                <input type="radio" name="12" value="">Широкий
+                            </label>
+                            <label>
+                                <input type="radio" name="12" value="">Обширный
+                            </label>
+                        </div>
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="13" value="правильный"> Влажный
+                            </label>
+                            <label>
+                                <input type="radio" name="13" value=""> Жаркий
+                            </label>
+                            <label>
+                                <input type="radio" name="13" value=""> Сухой
+                            </label>
+                            <label>
+                                <input type="radio" name="13" value=""> Холодный
+                            </label>
+                            <label>
+                                <input type="radio" name="13" value=""> Теплый
+                            </label>
+                        </div>
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="14" value="правильный"> Долина
+                            </label>
+                            <label>
+                                <input type="radio" name="14" value=""> Гора
+                            </label>
+                            <label>
+                                <input type="radio" name="14" value=""> Лес
+                            </label>
+                            <label>
+                                <input type="radio" name="14" value=""> Поле
+                            </label>
+                            <label>
+                                <input type="radio" name="14" value=""> Луг
+                            </label>
+                        </div>
+                        <div class="question" style="display:none;">
+                            <label>
+                                <input type="radio" name="15" value="правильный"> Кошка
+                            </label>
+                            <label>
+                                <input type="radio" name="15" value=""> Собака
+                            </label>
+                            <label>
+                                <input type="radio" name="15" value=""> Лошадь
+                            </label>
+                            <label>
+                                <input type="radio" name="15" value=""> Корова
+                            </label>
+                            <label>
+                                <input type="radio" name="15" value=""> Курица
+                            </label>
+                        </div>
+                        <!-- <button class="btn next" id="nextQuestion">ДАЛЕЕ</button> -->
+                    </div>
+                    
+                </div>
+                
+                <!-- <button class="btn" id="ready" style="display:none;">ГОТОВО</button>
+                     -->
+            </div>
+            <div id="testbuttons">
+                <button class="btn" id="nextQuestion">ДАЛЕЕ</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script src="script_test15.js"></script>
+</body>
+
+</html>
